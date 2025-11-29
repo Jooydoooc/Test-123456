@@ -1,6 +1,6 @@
 // api/submit.js
 
-// Small helper: normalize string (lowercase, trim, collapse spaces)
+// Normalize string (lowercase, trim, collapse spaces)
 function normalize(str) {
   return str.toLowerCase().replace(/\s+/g, " ").trim();
 }
@@ -53,8 +53,7 @@ function isCorrectAnswer(studentAnswer, variants) {
   return false;
 }
 
-// Correct answers list
-// Students write the WHOLE missing part, e.g. "had already cooked"
+// Correct answers list – students write the WHOLE missing part
 const correctAnswers = {
   1: ["had already cooked"],
   2: ["had been studying"],
@@ -66,7 +65,7 @@ const correctAnswers = {
   8: ["had been playing"],
   9: ["had not been sleeping", "hadn't been sleeping"],
   10: ["had just washed"],
-  11: ["had she put", "had put"], // accept both if students just write "had put"
+  11: ["had she put", "had put"],
   12: ["had been working", "had worked"],
   13: ["had never been"],
   14: ["had not been paying", "hadn't been paying"],
@@ -93,10 +92,12 @@ module.exports = async (req, res) => {
     return res.status(405).json({ success: false, message: "Only POST allowed" });
   }
 
-  const { name, answers } = req.body || {};
+  const { name, group, answers } = req.body || {};
 
-  if (!name || !answers) {
-    return res.status(400).json({ success: false, message: "Missing name or answers" });
+  if (!name || !group || !answers) {
+    return res
+      .status(400)
+      .json({ success: false, message: "Missing name, group or answers" });
   }
 
   let score = 0;
@@ -124,15 +125,18 @@ module.exports = async (req, res) => {
   const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
   const messageLines = [];
-  messageLines.push("📝 New Grammar Test Result");
+  messageLines.push("🧪 New Grammar Test Result");
   messageLines.push(`👤 Name: ${name}`);
+  messageLines.push(`👥 Group: ${group}`);
   messageLines.push(`✅ Score: ${score} / ${total}`);
   messageLines.push("");
   messageLines.push("Answers:");
 
   details.forEach((d) => {
     messageLines.push(
-      `${d.question}) Student: "${d.studentAnswer}" | Correct: ${d.correct ? "✅" : "❌"} | Key: ${d.correctAnswers.join(" / ")}`
+      `${d.question}) Student: "${d.studentAnswer}" | Correct: ${
+        d.correct ? "✅" : "❌"
+      } | Key: ${d.correctAnswers.join(" / ")}`
     );
   });
 
@@ -141,21 +145,26 @@ module.exports = async (req, res) => {
   // Send to Telegram (if env vars set)
   if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
     try {
-      await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          chat_id: TELEGRAM_CHAT_ID,
-          text: messageText,
-          parse_mode: "HTML"
-        })
-      });
+      await fetch(
+        `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            chat_id: TELEGRAM_CHAT_ID,
+            text: messageText,
+            parse_mode: "HTML"
+          })
+        }
+      );
     } catch (err) {
       console.error("Error sending Telegram message:", err);
-      // Do NOT fail the test for the student if Telegram sending fails
+      // don't fail student's result if Telegram fails
     }
   } else {
-    console.warn("TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID not set in environment.");
+    console.warn(
+      "TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID not set in environment."
+    );
   }
 
   return res.status(200).json({
