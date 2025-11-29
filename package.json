@@ -1,0 +1,21 @@
+{
+  "name": "past-perfect-test-app",
+  "version": "1.0.0",
+  "description": "Past Perfect & Past Perfect Continuous test with Telegram results",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "start": "vercel dev"
+  },
+  "keywords": [
+    "grammar",
+    "english",
+    "vercel",
+    "telegram"
+  ],
+  "author": "Doniyor",
+  "license": "MIT",
+  "engines": {
+    "node": "18.x"
+  }
+}
