@@ -17,9 +17,7 @@
       --border-soft: #e5e7eb;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -51,9 +49,7 @@
     }
 
     @media (min-width: 640px) {
-      .card {
-        padding: 28px 32px;
-      }
+      .card { padding: 28px 32px; }
     }
 
     h1 {
@@ -83,9 +79,7 @@
       margin: 0 auto 12px;
     }
 
-    .badge span {
-      font-size: 1rem;
-    }
+    .badge span { font-size: 1rem; }
 
     .section-title {
       font-size: 0.95rem;
@@ -107,13 +101,9 @@
       padding-left: 18px;
     }
 
-    .info-box li {
-      margin-bottom: 2px;
-    }
+    .info-box li { margin-bottom: 2px; }
 
-    .field-group {
-      margin-bottom: 14px;
-    }
+    .field-group { margin-bottom: 14px; }
 
     label {
       display: block;
@@ -171,10 +161,7 @@
       transform: none;
     }
 
-    .btn-full {
-      width: 100%;
-      justify-content: center;
-    }
+    .btn-full { width: 100%; justify-content: center; }
 
     .subtext {
       font-size: 0.78rem;
@@ -239,13 +226,9 @@
       padding: 4px 0;
     }
 
-    .result-item:last-child {
-      border-bottom: none;
-    }
+    .result-item:last-child { border-bottom: none; }
 
-    .result-item .left {
-      flex: 1;
-    }
+    .result-item .left { flex: 1; }
 
     .chip {
       font-size: 0.7rem;
@@ -271,17 +254,10 @@
       color: #4b5563;
     }
 
-    .feedback.good {
-      color: #166534;
-    }
+    .feedback.good { color: #166534; }
+    .feedback.bad { color: #b91c1c; }
 
-    .feedback.bad {
-      color: #b91c1c;
-    }
-
-    #test-screen {
-      display: none;
-    }
+    #test-screen { display: none; }
 
     #overlay-cheat {
       position: fixed;
@@ -324,6 +300,7 @@
   </style>
 </head>
 <body>
+  <!-- overlay when they switch apps / tab -->
   <div id="overlay-cheat">
     <div id="overlay-cheat-inner">
       <h3>Test Stopped</h3>
@@ -389,14 +366,39 @@
           <input type="hidden" id="student-name-hidden" name="studentName" />
           <input type="hidden" id="group-name-hidden" name="groupName" />
 
-          <!-- QUESTIONS (no 'required') -->
-          <!-- (same 30 inputs as before) -->
-          <!-- I’ll keep them exactly as in the previous version you used -->
-          <!-- ... (for brevity in this message, assume all 30 q1–q30 blocks here exactly as before) -->
+          <!-- 30 QUESTIONS – students may leave some empty -->
+          <div class="question"><p>1. She ______ already ______ (cook) dinner when he arrived.</p><input type="text" name="q1" /></div>
+          <div class="question"><p>2. ______ they ______ (study) long before the exam started?</p><input type="text" name="q2" /></div>
+          <div class="question"><p>3. We ______ ______ (not / finish) the task before the teacher checked it.</p><input type="text" name="q3" /></div>
+          <div class="question"><p>4. I ______ ______ (try) to call you all morning before you answered.</p><input type="text" name="q4" /></div>
+          <div class="question"><p>5. Why ______ he ______ (cry) before his mother came?</p><input type="text" name="q5" /></div>
+          <div class="question"><p>6. They ______ ______ (not / see) that movie before yesterday.</p><input type="text" name="q6" /></div>
+          <div class="question"><p>7. ______ you ______ (wait) long before the door opened?</p><input type="text" name="q7" /></div>
+          <div class="question"><p>8. The children ______ ______ (play) football for an hour before it began to rain.</p><input type="text" name="q8" /></div>
+          <div class="question"><p>9. She ______ ______ (not / sleep) well recently.</p><input type="text" name="q9" /></div>
+          <div class="question"><p>10. I ______ just ______ (wash) my hands before cooking.</p><input type="text" name="q10" /></div>
+          <div class="question"><p>11. Where ______ she ______ (put) her phone before she lost it?</p><input type="text" name="q11" /></div>
+          <div class="question"><p>12. We ______ ______ (work) here for five years before we moved.</p><input type="text" name="q12" /></div>
+          <div class="question"><p>13. He ______ never ______ (be) to Paris before last summer.</p><input type="text" name="q13" /></div>
+          <div class="question"><p>14. They ______ ______ (not / pay) attention when the teacher entered the room.</p><input type="text" name="q14" /></div>
+          <div class="question"><p>15. What ______ he ______ (say) before he left the meeting?</p><input type="text" name="q15" /></div>
+          <div class="question"><p>16. My dad ______ ______ (drive) for two hours before we stopped.</p><input type="text" name="q16" /></div>
+          <div class="question"><p>17. The students ______ ______ (practice) the song before the show.</p><input type="text" name="q17" /></div>
+          <div class="question"><p>18. I ______ ______ (not / meet) her until yesterday.</p><input type="text" name="q18" /></div>
+          <div class="question"><p>19. ______ she ______ (visit) that museum before?</p><input type="text" name="q19" /></div>
+          <div class="question"><p>20. They ______ already ______ (leave) when we arrived at the station.</p><input type="text" name="q20" /></div>
+          <div class="question"><p>21. We ______ ______ (look) for tickets for hours before we found the best price.</p><input type="text" name="q21" /></div>
+          <div class="question"><p>22. She ______ ______ (live) in London for 10 years before she moved to Canada.</p><input type="text" name="q22" /></div>
+          <div class="question"><p>23. He ______ ______ (not / read) the book before he watched the film.</p><input type="text" name="q23" /></div>
+          <div class="question"><p>24. ______ they ______ (work) on the project before the teacher asked for it?</p><input type="text" name="q24" /></div>
+          <div class="question"><p>25. The bus ______ ______ (leave) by the time we got to the stop.</p><input type="text" name="q25" /></div>
+          <div class="question"><p>26. I ______ ______ (not / eat) breakfast before I went to school.</p><input type="text" name="q26" /></div>
+          <div class="question"><p>27. Why ______ you ______ (laugh) when the director came in?</p><input type="text" name="q27" /></div>
+          <div class="question"><p>28. The cat ______ ______ (sleep) on the sofa for hours before we noticed.</p><input type="text" name="q28" /></div>
+          <div class="question"><p>29. She ______ ______ (not / clean) the room before the guests arrived.</p><input type="text" name="q29" /></div>
+          <div class="question"><p>30. How long ______ they ______ (play) when the rain started?</p><input type="text" name="q30" /></div>
 
-          <!-- PLEASE reuse the question blocks from the previous version you already pasted.
-               They are unchanged: only 'required' was removed, which you already have. -->
-
+          <!-- Students must click THIS to submit – nothing happens automatically -->
           <button type="submit" class="btn-full" id="submit-btn">
             Submit Test
           </button>
@@ -423,9 +425,41 @@
     let testStarted = false;
     let examInvalid = false;
 
-    // Feedback per question (same as before)
-    const feedbackMap = { /* ... same map as previous message ... */ };
+    // feedback sentences for each question
+    const feedbackMap = {
+      1: "Past perfect simple (had + V3) shows an action finished before another past action.",
+      2: "Past perfect continuous (had been + V-ing) shows how long something had been happening.",
+      3: "Use past perfect simple negative: had not + V3 (hadn't finished).",
+      4: "Past perfect continuous (had been trying) emphasises repeated or long actions.",
+      5: "Use had been + V-ing (crying) for longer past actions before another event.",
+      6: "Past perfect simple is used for experience before a point in the past.",
+      7: "Past perfect continuous (had been waiting) focuses on the duration of waiting.",
+      8: "Past perfect continuous is common for long activities before a past event.",
+      9: "Negative past perfect continuous: had not been + V-ing.",
+      10: "Past perfect simple with 'just' is used for actions that happened a short time before.",
+      11: "In questions, we invert had + subject (had she put...).",
+      12: "Both past perfect simple and continuous are possible: had worked / had been working.",
+      13: "Use 'had never been' for experiences that never happened before that time.",
+      14: "Use past perfect continuous to show they were not paying attention over a period.",
+      15: "In WH-questions, use WH + had + subject + V3 (What had he said...).",
+      16: "Past perfect continuous (had been driving) shows how long the action continued.",
+      17: "Use had been + V-ing for practice or repeated actions before a show.",
+      18: "Negative past perfect simple (hadn't met) before a specific past time.",
+      19: "Question form: Had she visited...? (had + subject + V3).",
+      20: "Past perfect simple with already shows the action was finished earlier.",
+      21: "Past perfect continuous (had been looking) highlights long searching.",
+      22: "Use had been living to show long-term residence before moving.",
+      23: "Negative past perfect simple (hadn't read) before a later action.",
+      24: "Past perfect continuous (had been working) describes ongoing work before a time.",
+      25: "Past perfect simple (had left) is used with 'by the time'.",
+      26: "Negative past perfect simple: had not eaten.",
+      27: "Past perfect continuous (had been laughing) for ongoing action before another event.",
+      28: "Use had been sleeping to show the cat slept for a long period.",
+      29: "Negative past perfect simple (hadn't cleaned) before the guests arrived.",
+      30: "Past perfect continuous (had been playing) shows duration before the rain started."
+    };
 
+    // START: only shows questions, does NOT submit anything
     startBtn.addEventListener("click", () => {
       const name = nameInput.value.trim();
       const group = groupInput.value.trim();
@@ -444,12 +478,13 @@
       testStarted = true;
     });
 
-    // Anti-switch
+    // Anti-switch: if user leaves tab/app while test is active, block attempt
     document.addEventListener("visibilitychange", () => {
       if (testStarted && !examInvalid && document.hidden) {
         examInvalid = true;
         overlayCheat.style.display = "flex";
 
+        // disable inputs so they cannot continue or submit
         const inputs = testForm.querySelectorAll("input, button");
         inputs.forEach((el) => {
           el.disabled = true;
@@ -457,6 +492,7 @@
       }
     });
 
+    // SUBMIT: only happens when they click the button or press Enter
     testForm.addEventListener("submit", async (e) => {
       e.preventDefault();
 
@@ -474,14 +510,6 @@
         answers["q" + i] = formData.get("q" + i) || "";
       }
 
-      const emptyCount = Object.values(answers).filter((v) => !v.trim()).length;
-      if (emptyCount > 0) {
-        const confirmSubmit = confirm(
-          `You have ${emptyCount} empty answer(s). They will be marked incorrect.\n\nDo you still want to submit?`
-        );
-        if (!confirmSubmit) return;
-      }
-
       resultBox.style.display = "none";
       resultBox.classList.remove("error");
       resultBox.innerHTML = "";
@@ -490,9 +518,7 @@
       try {
         const res = await fetch("/api/submit", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ name, group, answers })
         });
 
